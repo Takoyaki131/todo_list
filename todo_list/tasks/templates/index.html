@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+<body>
+
+    <h1>My todo list</h1>
+    <table>
+        <tr>
+            <th>Task ID</th>
+            <th>Task Name</th>
+            <th>Task Description</th>
+            <th colspan="2">Options</th>
+        </tr>
+        {% for x in mytasks %}
+        <tr>
+            <td>{{x.id}}</td>
+            <td>{{x.task_name}}</td>
+            <td>{{x.task_description}}</td>
+            <td><a href="edit/{{x.id}}">edit</a></td>
+            <td><a href="delete/{{x.id}}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><a href="add/">Add task</a></p>
+</body>
+</html>
